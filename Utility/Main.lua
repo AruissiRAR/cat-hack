@@ -59,6 +59,18 @@ function Utility:Encode(Position: Vector3)
     return Vector3.new(((Position.X - 74312) * 4 + 1325) * 13, (Position.Y + 3183421) * 4 - 4201432, (Position.Z * 41 - 581357) * 2);
 end
 
+function Utility:Create_Instance(ClassName: string, Properties: table)
+    local New_Instance = Instance.new(ClassName)
+
+    for i,v in next, Properties do
+        if typeof(i) ~= "string" then continue end;  
+        
+        New_Instance[i] = v
+    end
+
+    return New_Instance
+end
+
 function Utility:Team_Check(Player_1)
     return Player_1.Team ~= LocalPlayer.Team
 end
