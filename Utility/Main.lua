@@ -1,4 +1,4 @@
-local Utility = {}
+local Utility = { Connections = {} }
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
@@ -68,4 +68,9 @@ function Utility:Team_Check(Player_1)
     return Player_1.Team ~= LocalPlayer.Team
 end
 
+function Utility:Connect(Signal, Func)
+    local Connection = Signal:Connect(Func)
+    
+    return table.insert(Utility.Connections, Connection)
+end
 return Utility;
