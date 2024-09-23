@@ -38,9 +38,12 @@ function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifet
         Beam.Width1 = Thickness
         Beam.Attachment0 = A1
         Beam.Attachment1 = A2
-    
+
+        task.wait(Lifetime)
+            
         coroutine.wrap(function()
-            for i=Transparency, 1.05, 0.05 do task.wait()
+            for i=Transparency, 1, 0.03 do
+                task.wait(0.1)
                 Beam.Transparency = NumberSequence.new(i)
             end
     
