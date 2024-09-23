@@ -60,6 +60,10 @@ function Utility:Get_Gun(Player: Player)
     return Utility:Is_Alive(Player) and Player.Character:FindFirstChild("EquippedTool") or ""
 end 
 
+function Utility:Encode(Position: Vector3)
+    return Vector3.new(((Position.X - 74312) * 4 + 1325) * 13, (Position.Y + 3183421) * 4 - 4201432, (Position.Z * 41 - 581357) * 2);
+end
+
 function Utility:Team_Check(Player_1)
     return Player_1.Team ~= LocalPlayer.Team
 end
