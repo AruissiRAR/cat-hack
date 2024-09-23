@@ -85,7 +85,7 @@ end
 
 -- // Notification System
 
-local Notfication = Utility:Create_Instance("ScreenGui", {
+local Notification = Utility:Create_Instance("ScreenGui", {
     Name = "Notification",
     Parent = game.Players.LocalPlayer.PlayerGui,
     ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -93,9 +93,9 @@ local Notfication = Utility:Create_Instance("ScreenGui", {
 
 local NotificationHolder = Utility:Create_Instance("Frame", {
     Name = "NotificationHolder",
-    Position = UDim2.new(0.018, 0.000, 0.092, 0.000),
-    Size = UDim2.new(0.000, 219.000, 0.000, 629.000),
-    Parent = Notfication,
+    Position = UDim2.new(0.018, 0, 0.092, 0),
+    Size = UDim2.new(0, 219, 0, 629),
+    Parent = Notification,
     BackgroundTransparency = 1,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
     BorderSizePixel = 0,
@@ -111,84 +111,72 @@ Utility:Create_Instance("UIListLayout", {
     SortOrder = Enum.SortOrder.LayoutOrder
 })
 
-
-
 function Utility:Create_Notification(Text: string, Duration: number)
-	local New_Notification = Utility:Create_Instance("Frame", {
-		Name = "NotificationSample",
-		Position = UDim2.new(0.000, 0.000, 0.000, 0.000),
-		Size = UDim2.new(0.000, 204.000, 0.000, 46.000),
-		Parent = NotificationHolder,
-		BackgroundColor3 = Color3.fromRGB(14, 14, 14),
-		BorderSizePixel = 0,
-		ZIndex = 101
-	})
+    local New_Notification = Utility:Create_Instance("Frame", {
+        Name = "NotificationSample",
+        Size = UDim2.new(0, 204, 0, 46),
+        Parent = NotificationHolder,
+        BackgroundColor3 = Color3.fromRGB(14, 14, 14),
+        BorderSizePixel = 0,
+        ZIndex = 101
+    })
 
-	Utility:Create_Instance("UIStroke", {
-		Parent = New_Notification,
-		Color = Color3.fromRGB(26, 26, 26),
-		Thickness = 1.600000023841858,
-		Transparency = 0
-	})
+    Utility:Create_Instance("UIStroke", {
+        Parent = New_Notification,
+        Color = Color3.fromRGB(26, 26, 26),
+        Thickness = 1.6,
+        Transparency = 0
+    })
 
-	local NotificationFrame = Utility:Create_Instance("Frame", {
-		Name = "NotificationFrame",
-		Position = UDim2.new(0.020, 0.000, 0.087, 0.000),
-		Size = UDim2.new(0.000, 196.000, 0.000, 38.000),
-		Parent = New_Notification,
-		BackgroundColor3 = Color3.fromRGB(21, 21, 21),
-		BorderSizePixel = 0,
-		ZIndex = 102
-	})
+    local NotificationFrame = Utility:Create_Instance("Frame", {
+        Name = "NotificationFrame",
+        Position = UDim2.new(0.02, 0, 0.1, 0),
+        Size = UDim2.new(1, -4, 1, -8),
+        Parent = New_Notification,
+        BackgroundColor3 = Color3.fromRGB(21, 21, 21),
+        BorderSizePixel = 0,
+        ZIndex = 102
+    })
 
-	Utility:Create_Instance("UIStroke", {
-		Parent = NotificationFrame,
-		Color = Color3.fromRGB(21, 21, 21),
-		Thickness = 1,
-		Transparency = 0
-	})
+    Utility:Create_Instance("UIStroke", {
+        Parent = NotificationFrame,
+        Color = Color3.fromRGB(21, 21, 21),
+        Thickness = 1,
+        Transparency = 0
+    })
 
-	local Text = Utility:Create_Instance("TextLabel", {
-		Name = "TextLabel",
-		Position = UDim2.new(-0.020, 0.000, 0.105, 0.000),
-		Size = UDim2.new(0.000, 200.000, 0.000, 30.000),
-		Parent = NotificationFrame,
-		BackgroundTransparency = 1,
+    local TextLabel = Utility:Create_Instance("TextLabel", {
+        Name = "TextLabel",
+        Size = UDim2.new(1, 0, 1, 0),
+        Parent = NotificationFrame,
+        BackgroundTransparency = 1,
         Font = Enum.Font.GothamBold,
-		Text = Text,
-		TextXAlignment = Enum.TextXAlignment.Center,
-		TextYAlignment = Enum.TextYAlignment.Center,
-		TextColor3 = Color3.fromRGB(178, 178, 178),
-		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-		TextSize = 14,
-		BorderSizePixel = 0,
-		ZIndex = 103
-	})
+        Text = Text,
+        TextXAlignment = Enum.TextXAlignment.Center,
+        TextYAlignment = Enum.TextYAlignment.Center,
+        TextColor3 = Color3.fromRGB(178, 178, 178),
+        TextSize = 14,
+        BorderSizePixel = 0,
+        ZIndex = 103
+    })
 
-	local Timer = Utility:Create_Instance("Frame", {
-		Name = "Timer",
-		Position = UDim2.new(0.000, 0.000, 1.000, 0.000),
-		Size = UDim2.new(0.000, 204.000, 0.000, 1.000),
-		Parent = New_Notification,
-		BackgroundColor3 = Color3.fromRGB(79, 116, 171),
-		BorderSizePixel = 0,
-		ZIndex = 104
-	})
+    local Timer = Utility:Create_Instance("Frame", {
+        Name = "Timer",
+        Position = UDim2.new(0, 0, 1, 0),
+        Size = UDim2.new(1, 0, 0, 1),
+        Parent = New_Notification,
+        BackgroundColor3 = Color3.fromRGB(79, 116, 171),
+        BorderSizePixel = 0,
+        ZIndex = 104
+    })
 
+    local TimerTween = TweenService:Create(Timer, TweenInfo.new(Duration, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Size = UDim2.new(0, 0, 0, 1)})
+    TimerTween:Play()
 
-    Timer.Size = UDim2.new(0, Text.TextBounds.X + 204.000, 0, 1)
-    New_Notification.Size = UDim2.new(0, Text.TextBounds.X + 204.000, 0, 46.000)
-    NotificationFrame.Size = UDim2.new(0, Text.TextBounds.X + 196.000, 0, 38.000)
+    TimerTween.Completed:Connect(function()
+        New_Notification:Destroy()
+    end)
 
-	local TimerTween = TweenService:Create(Timer, TweenInfo.new(Duration, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Size = UDim2.new(0, 0, 0, 1)})
-	TimerTween:Play()
-
-
-	TimerTween.Completed:Connect(function()	
-		New_Notification:Destroy()
-	end)
-
-    print'done'
+    print("Notification created")
 end
-
 return Utility;
