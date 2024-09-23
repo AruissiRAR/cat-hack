@@ -148,19 +148,19 @@ function Utility:Create_Notification(Text: string, Duration: number)
 		Transparency = 0
 	})
 
-	Utility:Create_Instance("TextLabel", {
+	local Text = Utility:Create_Instance("TextLabel", {
 		Name = "TextLabel",
 		Position = UDim2.new(-0.020, 0.000, 0.105, 0.000),
 		Size = UDim2.new(0.000, 200.000, 0.000, 30.000),
 		Parent = NotificationFrame,
 		BackgroundTransparency = 1,
-		Font = Enum.Font.SourceSans,
+        Font = Enum.Font.GothamBold,
 		Text = Text,
 		TextXAlignment = Enum.TextXAlignment.Center,
 		TextYAlignment = Enum.TextYAlignment.Center,
 		TextColor3 = Color3.fromRGB(178, 178, 178),
 		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-		TextSize = 14,
+		TextSize = 16,
 		BorderSizePixel = 0,
 		ZIndex = 1
 	})
@@ -175,6 +175,11 @@ function Utility:Create_Notification(Text: string, Duration: number)
 		ZIndex = 1
 	})
 
+
+    Timer.Size = UDim2.new(0, Text.TextBounds.X + 204.000, 0, 1)
+    New_Notification.Size = UDim2.new(0, Text.TextBounds.X + 204.000, 0, 46.000)
+    NotificationFrame.Size = UDim2.new(0, Text.TextBounds.X + 196.000, 0, 38.000)
+
 	local TimerTween = TweenService:Create(Timer, TweenInfo.new(Duration, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Size = UDim2.new(0, 0, 0, 1)})
 	TimerTween:Play()
 
@@ -182,6 +187,8 @@ function Utility:Create_Notification(Text: string, Duration: number)
 	TimerTween.Completed:Connect(function()	
 		New_Notification:Destroy()
 	end)
+
+    print'done'
 end
 
 return Utility;
