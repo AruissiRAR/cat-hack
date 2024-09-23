@@ -60,5 +60,8 @@ function Utility:Get_Gun(Player: Player)
     return Utility:Is_Alive(Player) and Player.Character:FindFirstChild("EquippedTool") or ""
 end 
 
+function Utility:Team_Check(Player_1)
+    return Player_1.Team ~= LocalPlayer.Team
+end
 
 return Utility;
