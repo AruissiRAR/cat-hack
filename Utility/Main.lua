@@ -99,7 +99,7 @@ local NotificationHolder = Utility:Create_Instance("Frame", {
     BackgroundTransparency = 1,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
     BorderSizePixel = 0,
-    ZIndex = 100
+    ZIndex = 500
 })
 
 Utility:Create_Instance("UIListLayout", {
@@ -118,7 +118,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
         Parent = NotificationHolder,
         BackgroundColor3 = Color3.fromRGB(14, 14, 14),
         BorderSizePixel = 0,
-        ZIndex = 101
+        ZIndex = 501
     })
 
     Utility:Create_Instance("UIStroke", {
@@ -135,7 +135,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
         Parent = New_Notification,
         BackgroundColor3 = Color3.fromRGB(21, 21, 21),
         BorderSizePixel = 0,
-        ZIndex = 102
+        ZIndex = 502
     })
 
     Utility:Create_Instance("UIStroke", {
@@ -157,7 +157,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
         TextColor3 = Color3.fromRGB(178, 178, 178),
         TextSize = 14,
         BorderSizePixel = 0,
-        ZIndex = 103
+        ZIndex = 503
     })
 
     local Timer = Utility:Create_Instance("Frame", {
@@ -167,7 +167,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
         Parent = New_Notification,
         BackgroundColor3 = Color3.fromRGB(79, 116, 171),
         BorderSizePixel = 0,
-        ZIndex = 104
+        ZIndex = 504
     })
 
     local TimerTween = TweenService:Create(Timer, TweenInfo.new(Duration, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Size = UDim2.new(0, 0, 0, 1)})
