@@ -113,7 +113,7 @@ Utility:Create_Instance("UIListLayout", {
 
 
 
-function Create_Notification(Text: string, Duration: number)
+function Utility:Create_Notification(Text: string, Duration: number)
 	local New_Notification = Utility:Create_Instance("Frame", {
 		Name = "NotificationSample",
 		Position = UDim2.new(0.000, 0.000, 0.000, 0.000),
