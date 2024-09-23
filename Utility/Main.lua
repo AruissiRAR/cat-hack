@@ -42,7 +42,6 @@ function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifet
 
         DebrisService:AddItem(Part_1, Lifetime)
         DebrisService:AddItem(Part_2, Lifetime)
-        
     end)()
 end
 
