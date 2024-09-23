@@ -99,7 +99,7 @@ local NotificationHolder = Utility:Create_Instance("Frame", {
     BackgroundTransparency = 1,
     BackgroundColor3 = Color3.fromRGB(255, 255, 255),
     BorderSizePixel = 0,
-    ZIndex = 1
+    ZIndex = 100
 })
 
 Utility:Create_Instance("UIListLayout", {
@@ -121,7 +121,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
 		Parent = NotificationHolder,
 		BackgroundColor3 = Color3.fromRGB(14, 14, 14),
 		BorderSizePixel = 0,
-		ZIndex = 1
+		ZIndex = 101
 	})
 
 	Utility:Create_Instance("UIStroke", {
@@ -138,7 +138,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
 		Parent = New_Notification,
 		BackgroundColor3 = Color3.fromRGB(21, 21, 21),
 		BorderSizePixel = 0,
-		ZIndex = 1
+		ZIndex = 102
 	})
 
 	Utility:Create_Instance("UIStroke", {
@@ -160,9 +160,9 @@ function Utility:Create_Notification(Text: string, Duration: number)
 		TextYAlignment = Enum.TextYAlignment.Center,
 		TextColor3 = Color3.fromRGB(178, 178, 178),
 		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-		TextSize = 16,
+		TextSize = 14,
 		BorderSizePixel = 0,
-		ZIndex = 1
+		ZIndex = 103
 	})
 
 	local Timer = Utility:Create_Instance("Frame", {
@@ -172,7 +172,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
 		Parent = New_Notification,
 		BackgroundColor3 = Color3.fromRGB(79, 116, 171),
 		BorderSizePixel = 0,
-		ZIndex = 1
+		ZIndex = 104
 	})
 
 
