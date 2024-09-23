@@ -1,4 +1,4 @@
-local Utility = { Connections = {} }
+local Utility = { Connections = {}, Old_Functions = {} }
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
