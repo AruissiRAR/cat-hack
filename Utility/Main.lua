@@ -1,6 +1,7 @@
 local Utility = { Connections = {}, Old_Functions = {} }
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
+local DebrisService = game:GetService("Debris")
 Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
 
 function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifetime: number, Transparency: number, Color: Color3?, Thickness: number?, Texture: string?|number?, LightEmission: number?, FaceCamera: boolean?): Beam?
@@ -32,24 +33,16 @@ function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifet
         Beam.Texture = typeof(Texture) == "string" and Texture or "rbxassetid://".. tostring(Texture)
         Beam.LightEmission = LightEmission
         Beam.LightInfluence = 0
-        Beam.FaceCamera = FaceCamera
+        Beam.FaceCamera = FaceCamera or false
         Beam.Transparency = NumberSequence.new(Transparency)
         Beam.Width0 = Thickness
         Beam.Width1 = Thickness
         Beam.Attachment0 = A1
         Beam.Attachment1 = A2
 
-        task.wait(Lifetime)
-            
-        coroutine.wrap(function()
-            for i=Transparency, 1, 0.03 do
-                task.wait(0.1)
-                Beam.Transparency = NumberSequence.new(i)
-            end
-    
-            Part_1:Destroy()
-            Part_2:Destroy()
-        end)()
+        DebrisService:AddItem(Part_1, Lifetime)
+        DebrisService:AddItem(Part_2, Lifetime)
+        
     end)()
 end
 
