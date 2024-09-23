@@ -1,6 +1,7 @@
 local Utility = {}
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
+Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
 
 function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifetime: number, Transparency: number, Color: Color3?, Thickness: number?, Texture: string?|number?, LightEmission: number?, FaceCamera: boolean?): Beam?
     Color = ColorSequence.new(Color) or ColorSequence.new(Color3.fromRGB(255, 255, 255))
@@ -55,10 +56,9 @@ function Utility:Is_Alive(Player: Player): Instance
 end
 
 function Utility:Get_Gun(Player: Player)
-    if not Player then Player = LocalPlayer end
+    if not Player then return Utility.Client.gun end
     return Utility:Is_Alive(Player) and Player.Character:FindFirstChild("EquippedTool") or ""
 end 
 
-Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
 
 return Utility;
