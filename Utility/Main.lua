@@ -1,4 +1,4 @@
-local Utility = { Connections = {}, Old_Functions = {} }
+local Utility = { Connections = {}, Old_Functions = {}, Rendered_Objects = {}; }
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local DebrisService = game:GetService('Debris');
@@ -82,9 +82,19 @@ function Utility:Connect(Signal, Func)
     return table.insert(Utility.Connections, Connection)
 end
 
+function Utility:Draw(Type: string, Args: table)
+    local New_Drawing = Drawing.new(Type);
+
+    for i,v in next, Args do
+        New_Drawing[i] = v
+    end
+
+    table.insert(New_Drawing, Utility.Rendered_Objects)
+    
+    return New_Drawing
+end
 
 -- // Notification System
-
 local Notification = Utility:Create_Instance("ScreenGui", {
     Name = "Notification",
     Parent = game.Players.LocalPlayer.PlayerGui,
