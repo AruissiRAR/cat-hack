@@ -3,8 +3,8 @@ local Utility = { Connections = {}, Old_Functions = {}, Rendered_Objects = {}; }
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local DebrisService = game:GetService('Debris');
 local TweenService = game:GetService('TweenService');
-local HttpService = game:GetService("HttpService")
 Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
+
 function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifetime: number, Transparency: number, Color: Color3?, Thickness: number?, Texture: string?|number?, LightEmission: number?, FaceCamera: boolean?): Beam?
     coroutine.wrap(function()
         Color = ColorSequence.new(Color) or ColorSequence.new(Color3.fromRGB(255, 255, 255))
@@ -58,6 +58,49 @@ end
 
 function Utility:Encode(Position: Vector3)
     return Vector3.new(((Position.X - 74312) * 4 + 1325) * 13, (Position.Y + 3183421) * 4 - 4201432, (Position.Z * 41 - 581357) * 2);
+end
+
+function Utility:Create_Drag(GUI: Frame)
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        TS:Create(gui, TweenInfo.new(0.16, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)}):Play();
+    end
+
+    local lastEnd = 0
+    local lastMoved = 0
+    local con
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+        end
+    end)
+
+    UIS.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = false
+        end
+    end)
+
+
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+            lastMoved = os.clock()
+        end
+    end)
+
+    UIS.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
+        end
+    end)
 end
 
 function Utility:Create_Instance(ClassName: string, Properties: table)
@@ -198,42 +241,42 @@ end
 
 Utility.Gun_Settings = {
     ["Glock"] = {
-        MinDamage = 0,
+        MinDamage = 21,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["DualBerettas"] = {
-        MinDamage = 0,
+        MinDamage = 13,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["P250"] = {
-        MinDamage = 0,
+        MinDamage = 54,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["Tec9"] = {
-        MinDamage = 0,
+        MinDamage = 75,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["USP"] = {
-        MinDamage = 0,
+        MinDamage = 55,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["P2000"] = {
-        MinDamage = 0,
+        MinDamage = 55,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["CZ"] = {
-        MinDamage = 0,
+        MinDamage = 25,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["FiveSeven"] = {
-        MinDamage = 0,
+        MinDamage = 54,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -243,12 +286,12 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["DesertEagle"] = {
-        MinDamage = 0,
+        MinDamage = 89,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["Nova"] = {
-        MinDamage = 0,
+        MinDamage = 32,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -258,7 +301,7 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["SawedOff"] = {
-        MinDamage = 0,
+        MinDamage = 44,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -278,7 +321,7 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["AK47"] = {
-        MinDamage = 0,
+        MinDamage = 34,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -348,21 +391,21 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["Scout"] = {
-        MinDamage = 0,
+        MinDamage = 101,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["AWP"] = {
-        MinDamage = 0,
+        MinDamage = 101,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["G3SG1"] = {
-        MinDamage = 0,
+        MinDamage = 54,
         OverrideActive = false,
         MinDamageOverride = 0
     }
 }
--- for some reason it wont cache if this comment isnt here :shrug:
--- Utility:Create_Notification("This is a really fucking long message that is only20characters haha", 5)
+
+--Utility:Create_Notification("This is a really fucking long message that is only20characters haha", 5)
 return Utility;
