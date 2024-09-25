@@ -117,7 +117,7 @@ Utility:Create_Instance("UIListLayout", {
     Padding = UDim.new(0, 6),
     FillDirection = Enum.FillDirection.Vertical,
     HorizontalAlignment = Enum.HorizontalAlignment.Left,
-    VerticalAlignment = Enum.VerticalAlignment.Bottom,
+    VerticalAlignment = Enum.VerticalAlignment.Top,
     SortOrder = Enum.SortOrder.LayoutOrder
 })
 
@@ -186,8 +186,6 @@ function Utility:Create_Notification(Text: string, Duration: number)
     TimerTween.Completed:Connect(function()
         New_Notification:Destroy()
     end)
-
-    print("Notification created")
 end
 
 Utility.Gun_Settings = {
