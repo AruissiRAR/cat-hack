@@ -363,6 +363,6 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     }
 }
-
+-- for some reason it wont cache if this comment isnt here :shrug:
 -- Utility:Create_Notification("This is a really fucking long message that is only20characters haha", 5)
 return Utility;
