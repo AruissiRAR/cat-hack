@@ -3,8 +3,8 @@ local Utility = { Connections = {}, Old_Functions = {}, Rendered_Objects = {}; }
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local DebrisService = game:GetService('Debris');
 local TweenService = game:GetService('TweenService');
+local HttpService = game:GetService("HttpService")
 Utility.Client = getsenv(LocalPlayer.PlayerGui.Client)
-
 function Utility:Create_Beam(From: Vector3?|CFrame?, To: Vector3?|CFrame?, Lifetime: number, Transparency: number, Color: Color3?, Thickness: number?, Texture: string?|number?, LightEmission: number?, FaceCamera: boolean?): Beam?
     coroutine.wrap(function()
         Color = ColorSequence.new(Color) or ColorSequence.new(Color3.fromRGB(255, 255, 255))
