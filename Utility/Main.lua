@@ -180,6 +180,13 @@ function Utility:Create_Notification(Text: string, Duration: number)
         ZIndex = 504
     })
 
+    task.wait()
+
+    -- TextLabel.Size = UDim2.new(0, TextLabel.TextBounds.X, 1, 0)
+    -- Timer.Size = UDim2.new(1, -TextLabel.TextBounds.X, 0, 1)
+    -- NotificationFrame.Size = UDim2.new(1, TextLabel.TextBounds.X + 4, 1, -8)
+    -- New_Notification.Size = UDim2.new(0, TextLabel.TextBounds.X + 204, 0, 46)
+
     local TimerTween = TweenService:Create(Timer, TweenInfo.new(Duration, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Size = UDim2.new(0, 0, 0, 1)})
     TimerTween:Play()
 
@@ -187,6 +194,7 @@ function Utility:Create_Notification(Text: string, Duration: number)
         New_Notification:Destroy()
     end)
 end
+
 
 Utility.Gun_Settings = {
     ["Glock"] = {
@@ -355,4 +363,6 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     }
 }
-return Utility;
+
+Utility:Create_Notification("This is a really fucking long message that is only20characters haha", 5)
+--return Utility;
