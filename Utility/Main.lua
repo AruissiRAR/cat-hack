@@ -189,4 +189,172 @@ function Utility:Create_Notification(Text: string, Duration: number)
 
     print("Notification created")
 end
+
+Utility.Gun_Settings = {
+    ["Glock"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["DualBerettas"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["P250"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Tec9"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["USP"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["P2000"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["CZ"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["FiveSeven"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["R8"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["DesertEagle"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Nova"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["XM"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["SawedOff"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["MAG7"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["M4A4"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["M4A1"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["AK47"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Famas"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Galil"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["AUG"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["SG"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Negev"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["M249"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["MP9"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["MAC10"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["MP7"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["MP7-SD"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["UMP"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["P90"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Bizon"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["Scout"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["AWP"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    },
+    ["G3SG1"] = {
+        MinDamage = 0,
+        OverrideActive = false,
+        MinDamageOverride = 0
+    }
+}
 return Utility;
