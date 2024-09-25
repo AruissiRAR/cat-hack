@@ -198,42 +198,42 @@ end
 
 Utility.Gun_Settings = {
     ["Glock"] = {
-        MinDamage = 0,
+        MinDamage = 21,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["DualBerettas"] = {
-        MinDamage = 0,
+        MinDamage = 13,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["P250"] = {
-        MinDamage = 0,
+        MinDamage = 54,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["Tec9"] = {
-        MinDamage = 0,
+        MinDamage = 75,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["USP"] = {
-        MinDamage = 0,
+        MinDamage = 55,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["P2000"] = {
-        MinDamage = 0,
+        MinDamage = 55,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["CZ"] = {
-        MinDamage = 0,
+        MinDamage = 25,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["FiveSeven"] = {
-        MinDamage = 0,
+        MinDamage = 54,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -243,12 +243,12 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["DesertEagle"] = {
-        MinDamage = 0,
+        MinDamage = 89,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["Nova"] = {
-        MinDamage = 0,
+        MinDamage = 32,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -258,7 +258,7 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["SawedOff"] = {
-        MinDamage = 0,
+        MinDamage = 44,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -278,7 +278,7 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["AK47"] = {
-        MinDamage = 0,
+        MinDamage = 34,
         OverrideActive = false,
         MinDamageOverride = 0
     },
@@ -348,17 +348,17 @@ Utility.Gun_Settings = {
         MinDamageOverride = 0
     },
     ["Scout"] = {
-        MinDamage = 0,
+        MinDamage = 101,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["AWP"] = {
-        MinDamage = 0,
+        MinDamage = 101,
         OverrideActive = false,
         MinDamageOverride = 0
     },
     ["G3SG1"] = {
-        MinDamage = 0,
+        MinDamage = 54,
         OverrideActive = false,
         MinDamageOverride = 0
     }
