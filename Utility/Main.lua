@@ -97,7 +97,7 @@ end
 -- // Notification System
 local Notification = Utility:Create_Instance("ScreenGui", {
     Name = "Notification",
-    Parent = game.Players.LocalPlayer.PlayerGui,
+    Parent = gethui(),
     ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 })
 
